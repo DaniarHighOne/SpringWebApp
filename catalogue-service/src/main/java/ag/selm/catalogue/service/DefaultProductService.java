@@ -1,8 +1,8 @@
-package com.daniyar.service;
+package ag.selm.catalogue.service;
 
 
-import com.daniyar.entity.Product;
-import com.daniyar.repository.ProductRepository;
+import ag.selm.catalogue.entity.Product;
+import ag.selm.catalogue.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

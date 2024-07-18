@@ -1,6 +1,6 @@
-package com.daniyar.repository;
+package ag.selm.catalogue.repository;
 
-import com.daniyar.entity.Product;
+import ag.selm.catalogue.entity.Product;
 
 import java.util.List;
 import java.util.Optional;

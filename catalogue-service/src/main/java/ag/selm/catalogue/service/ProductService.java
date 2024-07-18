@@ -1,7 +1,7 @@
-package com.daniyar.service;
+package ag.selm.catalogue.service;
 
 
-import com.daniyar.entity.Product;
+import ag.selm.catalogue.entity.Product;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 

@@ -3,7 +3,6 @@ package com.daniyar.controller;
 import com.daniyar.controller.payload.UpdateProductPayload;
 import com.daniyar.entity.Product;
 import com.daniyar.service.ProductService;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,14 +1,12 @@
-package com.daniyar.repository;
+package ag.selm.catalogue.repository;
 
 //todo register component inside apllication with stereotypes
 //this annotation will help with AOP
 
-import com.daniyar.entity.Product;
-import lombok.RequiredArgsConstructor;
+import ag.selm.catalogue.entity.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
 @Repository
 public class InMemoryProductRepository implements ProductRepository{
