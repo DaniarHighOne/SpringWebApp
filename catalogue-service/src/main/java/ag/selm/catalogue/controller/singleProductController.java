@@ -39,11 +39,10 @@ public class singleProductController {
     }
 
     //update product by id
-    @PatchMapping
+    @PostMapping
     public ResponseEntity<?> updateProduct(@PathVariable("productId")int productId,
                                               @Valid @RequestBody UpdateProductPayload payload,
-                                              BindingResult bindingResult,
-                                              Locale locale) throws BindException {
+                                              BindingResult bindingResult) throws BindException {
         if (bindingResult.hasErrors()) {
             if(bindingResult instanceof BindException exception){
                 throw exception;
@@ -58,4 +57,20 @@ public class singleProductController {
     }
 
     //delete product by id
+    @DeleteMapping
+    public ResponseEntity<Void> deleteProduct(@PathVariable("productId") int productId){
+        this.productService.deleteProduct(productId);
+        return ResponseEntity.noContent()
+                .build();
+    }
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<ProblemDetail> handleNoSuchElementException(NoSuchElementException exception,
+                                                                      Locale locale){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,
+                this.messageSource.getMessage(exception.getMessage(), new Object[0],
+                        exception.getMessage(), locale)));
+
+    }
+
 }
