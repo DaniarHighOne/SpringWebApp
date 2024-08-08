@@ -18,7 +18,7 @@ public class DefaultProductService implements ProductService{
 
 
     @Override
-    public List<Product> findAllProducts() {
+    public Iterable<Product> findAllProducts() {
 
         return this.productRepository.findAll();
     }

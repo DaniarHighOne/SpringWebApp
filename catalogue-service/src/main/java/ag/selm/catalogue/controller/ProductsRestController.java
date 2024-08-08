@@ -34,7 +34,7 @@ public class ProductsRestController {
     private final MessageSource messageSource;
 
     @GetMapping
-    public List<Product> findProducts(){
+    public Iterable<Product> findProducts(){
         return this.productService.findAllProducts();
     }
     //in rest api data is request body annotation
