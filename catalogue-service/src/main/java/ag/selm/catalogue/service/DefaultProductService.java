@@ -3,6 +3,7 @@ package ag.selm.catalogue.service;
 
 import ag.selm.catalogue.entity.Product;
 import ag.selm.catalogue.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +19,15 @@ public class DefaultProductService implements ProductService{
 
 
     @Override
-    public Iterable<Product> findAllProducts() {
-
-        return this.productRepository.findAll();
+    public Iterable<Product> findAllProducts(String filter) {
+        if (filter != null && !filter.isBlank()) {
+            this.productRepository.findAllByTitleLikeIgnoreCase("%" + filter + "%");
+        } else {
+        } return this.productRepository.findAll();
     }
 
     @Override
+    @Transactional
     public Product createProduct(String title, String details) {
         return this.productRepository.save(new Product(null,title,details));
     }
@@ -35,6 +39,7 @@ public class DefaultProductService implements ProductService{
     }
 
     @Override
+    @Transactional
     public void updateProduct(Integer id, String title, String details) {
         this.productRepository.findById(id)
                 .ifPresentOrElse(product -> {
@@ -46,6 +51,7 @@ public class DefaultProductService implements ProductService{
     }
 
     @Override
+    @Transactional
     public void deleteProduct(Integer id) {
         this.productRepository.deleteById(id);
     }

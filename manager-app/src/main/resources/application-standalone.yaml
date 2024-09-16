@@ -2,3 +2,5 @@ selmag:
   services:
     catalogue:
       uri: http://localhost:8080
+      username: catalogue-user-service
+      password: password
